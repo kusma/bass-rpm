@@ -1,0 +1,8 @@
+before_script:
+ - sudo apt-get install -y rpm
+ - mkdir -p ~/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
+ - wget http://www.un4seen.com/files/bass24-linux.zip -O ~/rpmbuild/SOURCES/bass24-linux.zip
+
+script:
+ - rpmbuild --target=x86_64 -bb bass.spec
+ - rpmbuild --target=i386 -bb bass.spec
